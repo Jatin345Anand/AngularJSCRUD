@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/custom/main.css">
+    <script src="./Libs/angular.min.js"></script>
+    <script src="./JS/custom/app.js"></script>
+    <script src="./JS/custom/value.js"></script>
+    <script src="./JS/custom/mobile.js"></script>
+    <script src="./JS/custom/mobileOperation.js"></script>
+    <script src="./JS/custom/model.js"></script>
+    <script src="./JS/custom/controller.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+    <div>
+        <input type="text"  class="form-control" ng-model="i" placeholder="Enter text...." ng-change="Print()" id="Input">
+        <h1>Text is {{T}}</h1>
+    </div>
+    <div>
+        <button class="btn btn-primary" ng-click="S()">Touch</button>
+        <br>
+         <h2>My name is {{j}}</h2>
+        </div>
+    <div>
+        <input type="text" class="form-control" ng-model="search.price" placeholder="Enter the text to search...">
+         
+         <label for="inputEmail3" style="font-size:20px" class="col-sm-2 control-label">Sort By</label>
+              <select ng-model="SORT">
+             <option >price</option>
+             <option >id</option>
+             <option >name</option>
+         </select>
+         <br><br>
+         <input  type="checkbox" ng-model="dir" >
+         Asending OR Desending {{dir}}
+        <br><button type="button" ng-click="LOAD()" class="btn 
+        btn-danger">Load</button>
+        <hr>
+        <div>
+            <h1>Added cart of Mobiles :</h1>
+            <ul id="ADDEDLIST">
+                    <li ng-repeat="item in AddedMobiles">
+                        <h4>Id : {{item.id}}</h4>
+                        <h4>Name : {{item.name}}</h4>
+                        <h4>Price : {{item.price}}</h4>
+                        <img class="size" ng-src="{{item.url}}" alt="">
+                       
+                    </li>
+                </ul>   
+        </div><hr>
+        <hr>
+        <input type="text"  class="form-control" ng-model="ID" placeholder="Enter ID...."  ><br>
+        <input type="text"  class="form-control" ng-model="NAME" placeholder="Enter NAME...."  ><br>
+        <input type="text"  class="form-control" ng-model="PRICE" placeholder="Enter PRICE...."  ><br>
+        <input type="text"  class="form-control" ng-model="URL" placeholder="Enter URL...."  ><br>
+            <button type="button" ng-click="ADD()" class="btn btn-success">Add</button>
+             
+            <button type="button" ng-click="DELETE()" class="btn btn-info">Delete</button>
+          <button type="button" ng-click="UPDATE()" class="btn btn-warning">Update</button>
+        <ul>
+            <li ng-repeat="item in result|filter:search|orderBy:SORT:dir">
+                <h2>Id : {{item.id}}</h2>
+                <h2>Name : {{item.name}}</h2>
+                <h2>Price : {{item.price}}</h2>
+                <img class="size" ng-src="{{item.url}}" alt="">
+                <button class="btn btn-primary" ng-click="ADDTOCART(item.id)">Add to Cart</button>
+                <button class="btn btn-warning" ng-click="ADDTODELETE(item.id)">Add to delete</button>
+                <button class="btn btn-success" ng-click="like(item.id)">Like {{item.like}}</button>
+            </li>
+        </ul>
+         
+    </div>
+</body>
+</html>
