@@ -1,0 +1,62 @@
+<div id="login-conainer">
+   <div id="crud-page"  ng-controller="CTRLCRUD">
+        <div class="form-group"> 
+                <label  id="ll1" for="id">--:ITEM ID:--</label>
+                <input type="text" class="form-control" ng-model="crudid" id="id" placeholder="ID"/>
+                </div>
+                <div class="form-group">
+                <label  id="ll1" for="password">--:ITEM NAME:--</label>
+                <input type="text"   ng-model="crudname" class="form-control" id="password" placeholder="NAME"/>
+               </div> 
+               <div class="form-group">
+                <label  id="ll1" for="price">--:ITEM PRICE:--</label>
+                <input type="text" class="form-control"  ng-model="crudprice" id="price" placeholder="PRICE"/>
+                </div>
+                <div class="form-group">
+                <label  id="ll1" for="url">--:ITEM URL:--</label>
+                <input type="text" class="form-control"  ng-model="crudurl" id="url" placeholder="URL"/>
+               </div>
+               <button type="button" ng-click="ADDCRUD()" class="btn btn-primary">ADD</button>&nbsp; &nbsp;
+               <button type="button" ng-click="SAVECRUD()" class="btn btn-success">SAVE</button>&nbsp; &nbsp;
+               <button type="button" ng-click="DELETECRUD()" class="btn btn-info">DELETE</button>&nbsp; &nbsp;
+               <button type="button" ng-click="LOADCRUD()" class="btn btn-bd-download" >LOAD</button>&nbsp; &nbsp;
+               <button type="button" ng-click="SEARCHCRUD()" class="btn btn-danger">SEARCH</button>&nbsp; &nbsp;
+               <button type="button" ng-click="UPDATECRUD()" class="btn  btn-info">UPDATE</button>&nbsp; &nbsp;
+               <button type="button" ng-click="SORTCRUD()" class="btn btn-info">SORT</button>&nbsp; &nbsp;
+               <button ng-click="CLEARALLCRUD()" type="button" class="btn btn-primary">CLEAR ALL</button>&nbsp; &nbsp;
+                        <button type="button" ng-click="UPLOADCRUD()"  class="btn btn-bd-primary">UPLOAD</button>
+                        <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">ID</th>
+                                        <th scope="col">NAME</th>
+                                        <th scope="col">PRICE</th>
+                                        <th scope="col">IMAGE</th> 
+                                        <th scope="col">OPERATIONS</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr  ng-repeat="item in result">
+                                    <th scope="row">$</th>
+                                    <td>{{item.id}} </td>  
+                                    <td> {{item.name}} </td>
+                                    <td>{{item.price}} </td>
+                                    <td><img class="size" id="crudImg" ng-src="{{item.url}}" alt="">  </td>
+                                    <td>
+                                    <button id="del" type="button"   class="btn btn-danger icon">D</button>&nbsp; &nbsp;
+                                    <button id="mark"   type="button" class="btn btn-default icon">C</button>
+                                    <button id="mark"   type="button" class="btn btn-secondary icon">L</button>
+                                    
+                                    </td>
+     
+                                  </tr>
+                                   </tbody>
+                                  </table>
+                         
+                             </div>
+   </div>
+
+
+
+</div>
